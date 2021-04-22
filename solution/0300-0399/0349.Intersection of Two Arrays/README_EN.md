@@ -1,0 +1,79 @@
+# [349. Intersection of Two Arrays](https://leetcode.com/problems/intersection-of-two-arrays)
+
+[中文文档](/solution/0300-0399/0349.Intersection%20of%20Two%20Arrays/README.md)
+
+## Description
+
+<p>Given two integer arrays <code>nums1</code> and <code>nums2</code>, return <em>an array of their intersection</em>. Each element in the result must be <strong>unique</strong> and you may return the result in <strong>any order</strong>.</p>
+
+<p>&nbsp;</p>
+<p><strong>Example 1:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums1 = [1,2,2,1], nums2 = [2,2]
+<strong>Output:</strong> [2]
+</pre>
+
+<p><strong>Example 2:</strong></p>
+
+<pre>
+<strong>Input:</strong> nums1 = [4,9,5], nums2 = [9,4,9,8,4]
+<strong>Output:</strong> [9,4]
+<strong>Explanation:</strong> [4,9] is also accepted.
+</pre>
+
+<p>&nbsp;</p>
+<p><strong>Constraints:</strong></p>
+
+<ul>
+	<li><code>1 &lt;= nums1.length, nums2.length &lt;= 1000</code></li>
+	<li><code>0 &lt;= nums1[i], nums2[i] &lt;= 1000</code></li>
+</ul>
+
+
+## Solutions
+
+<!-- tabs:start -->
+
+### **Python3**
+
+```python
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        s1, s2 = set(nums1), set(nums2)
+        return list(s1 & s2)
+```
+
+### **Java**
+
+```java
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        Set<Integer> s1 = transfer(nums1);
+        Set<Integer> s2 = transfer(nums2);
+        s1.retainAll(s2);
+        int[] output = new int[s1.size()];
+        int i = 0;
+        for (Integer e : s1) {
+            output[i++] = e;
+        }
+        return output;
+    }
+
+    private Set<Integer> transfer(int[] nums) {
+        Set<Integer> s = new HashSet<>();
+        for (int e : nums) {
+            s.add(e);
+        }
+        return s;
+    }
+}
+```
+
+### **...**
+
+```
+
+```
+
+<!-- tabs:end -->
